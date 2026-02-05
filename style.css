@@ -1,0 +1,246 @@
+/* ===================== Home Screen ===================== */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+  color: #222;
+}
+
+/* Home Screen */
+#homeScreen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #ffe6f0, #ffcc99, #ffff99);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  text-align: center;
+  overflow: hidden;
+}
+
+#homeScreen h1 {
+  font-size: 3em;
+  margin: 0.2em;
+  text-shadow: 2px 2px 5px #ff69b4;
+}
+#homeScreen p {
+  font-size: 1.5em;
+  margin: 0.5em;
+  text-shadow: 1px 1px 3px #ffcc00;
+}
+#homeScreen .highlight {
+  color: #ff3399;
+  font-weight: bold;
+}
+
+/* Pulsing Picture */
+#heroPicContainer { margin: 20px 0; }
+#heroPic {
+  width: 200px;
+  border-radius: 20px;
+  animation: pulse 1.5s infinite alternate;
+  box-shadow: 0 0 20px #ff3399, 0 0 40px #ffcc00;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+/* Play Button */
+#playBtn {
+  padding: 15px 40px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff99ff, #ffcc00, #66ffcc);
+  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff99ff;
+  margin-top: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+#playBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ffcc00, 0 0 50px #ff99ff;
+}
+
+/* Balloons */
+.balloon {
+  position: absolute;
+  bottom: -50px;
+  font-size: 2em;
+  animation: floatUp linear infinite;
+  animation-duration: calc(6s + var(--i) * 2s);
+  left: calc(10% + var(--i) * 15%);
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-120vh) rotate(360deg); }
+}
+
+/* Confetti */
+#confetti {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  font-size: 24px;
+}
+#confetti::after {
+  content: "🎉🎊✨🎈🎁";
+  position: absolute;
+  animation: confettiFall 3s linear infinite;
+}
+@keyframes confettiFall {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* ===================== Game ===================== */
+#game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Monster Image */
+#monster {
+  width: 250px;
+  max-width: 90%;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+#monster:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.7);
+}
+
+/* Health Bar */
+#healthBar {
+  width: 300px;
+  max-width: 90%;
+  height: 28px;
+  background-color: #444;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #000 inset;
+  margin-top: 10px;
+}
+#health {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, #ff4d4d, #ffcc00, #66ff66);
+  transition: width 0.2s ease;
+  box-shadow: 0 0 10px #ffcc00, 0 0 20px #ff4d4d inset;
+}
+
+/* Damage Numbers */
+.damage {
+  position: absolute;
+  color: #ff3399;
+  font-size: 28px;
+  font-weight: bold;
+  pointer-events: none;
+  opacity: 1;
+  transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+}
+
+/* Video */
+video {
+  display: none;
+  width: 90%;
+  max-height: 70vh;
+  margin-top: 20px;
+  border-radius: 15px;
+  object-fit: contain;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Next Button */
+#nextBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff99ff, #ffcc00, #66ffcc);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff99ff;
+  color: #222;
+}
+#nextBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ffcc00, 0 0 50px #ff99ff;
+}
+
+/* ===================== Closing Screen ===================== */
+#closingScreen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #fff0f5, #ff69b4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  text-align: center;
+  color: #222;
+  animation: fadeIn 1s ease-out;
+}
+
+#closingScreen h1 {
+  font-size: 3em;
+  margin: 0.3em;
+  text-shadow: 2px 2px 5px #ff3399;
+}
+
+#closingScreen p {
+  font-size: 1.5em;
+  margin: 0.2em;
+  text-shadow: 1px 1px 3px #ffcc00;
+}
+
+#closingScreen button {
+  margin-top: 20px;
+  padding: 15px 40px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff99ff, #ffcc00, #66ffcc);
+  box-shadow: 0 0 15px #ffcc00, 0 0 30px #ff99ff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#closingScreen button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ffcc00, 0 0 50px #ff99ff;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#closingPrincess {
+  width: 250px;
+  max-width: 80%;
+  border-radius: 20px;
+  margin: 20px 0;
+  box-shadow: 0 0 30px #ffcc00, 0 0 50px #ff3399;
+  animation: pulse 1.5s infinite alternate;
+}
