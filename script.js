@@ -12,7 +12,7 @@ playBtn.onclick = () => {
 
 // ===================== LEVEL DATA =====================
 const levels = [
-  { name: "Little Dwarf", hp: 100, image: "images/friend1.png", video: "https://drive.google.com/uc?export=download&id=1xYDtggD1i7A2vtfZhSIYbVqP2AMYu0RB" },
+  { name: "Little Dwarf", hp: 100, image: "images/friend1.png", video: "videos/friend1.mp4" },
   { name: "Failed BBall Playa", hp: 110, image: "images/friend2.png", video: "videos/friend2.mp4" },
   { name: "Playa", hp: 120, image: "images/friend3.png", video: "videos/friend3.mp4" },
   { name: "Beethoven's Dog", hp: 130, image: "images/friend4.png", video: "videos/friend4.mp4" },
@@ -173,3 +173,4 @@ nextBtn.onclick = () => {
 
   loadLevel();
 };
+
