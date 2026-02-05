@@ -5,7 +5,7 @@ const music = document.getElementById("birthdayMusic");
 
 playBtn.onclick = () => {
   homeScreen.style.display = "none";
-  music.volume = 0.01;
+  music.volume = 0.3;
   music.play().catch(() => console.log("Music blocked"));
   loadLevel();
 };
@@ -173,4 +173,5 @@ nextBtn.onclick = () => {
 
   loadLevel();
 };
+
 
